@@ -17,7 +17,7 @@ def bf_optimizer(f, X, target, ind_vars, ind_vars_ranges):
         scenarios[i,ind_vars_inds] = comb
     
     # find optimal value
-    y_hats = model.predict(scenarios)
+    y_hats = model.predict(scenarios).reshape(-1,1)
     optimal_x_ind = abs(y_hats - np.full((search_space_size,1),target)).argmin()
     optimal_x = scenarios[optimal_x_ind,ind_vars_inds]
     optimal_y = model.predict(scenarios[optimal_x_ind].reshape(1,-1))[0]

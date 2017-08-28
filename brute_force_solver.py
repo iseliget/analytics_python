@@ -3,7 +3,10 @@ def bf_optimizer(f, X, target, indp_vars, indp_vars_ranges):
     X should be a pandas.DataFrame of shape (1,-1)
     When X is a n*p data frame, pass the i-th row as X.iloc[[i]]
     """
-
+    
+    if X.shape[0] != 1:
+        raise ValueError("Shape of X has to be 1*p")
+        
     search_space_size = np.product([len(i) for i in indp_vars_ranges])
     print("search space size: " + str(search_space_size))
 

@@ -13,7 +13,7 @@ def unbiasedVariance(obs):
 def pooledVariance(obs):
 	'''
 	computes pooled variance. returns S_p^2,the one WITHOUT the square root
-  obs: list of list of numbers
+  	obs: list of list of numbers
 	'''
 	num_of_groups = len(obs)
 	num_of_obs = sum([len(i) for i in obs])
